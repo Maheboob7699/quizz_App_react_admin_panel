@@ -1,0 +1,29 @@
+body {
+    font-family: "Roboto", sans-serif;
+}
+
+.quizz-menu {
+    width: 170px;
+    height: 120vh;
+    box-shadow: 0px 8px 16px 0px #1C1C1E1A;
+}
+
+.quizz-menu p {
+    font-size: 1.3rem;
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+.quizz-menu div {
+    display: flex;
+    align-items: center;
+    height: 30px;
+    margin-left: 10px;
+    margin-bottom: 20px;
+    cursor: pointer;
+
+}
+
+.quizz-menu .icon {
+    margin-top: 10px;
+}

@@ -1,0 +1,36 @@
+.container {
+    width: 100%;
+    overflow-x: auto; /* Ensures responsiveness on small screens */
+  }
+  
+  table {
+    width: 100%;  /* Ensures the table takes the full width */
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  th, td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  th {
+    background-color: #daf0f3;
+  }
+  
+  button {
+    margin: 0 5px;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+    color: blue;
+    background: transparent;
+    border-radius:8px;
+  }
+  
+  button:hover {
+    background-color: #ddd;
+  }
+  

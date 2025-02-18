@@ -1,0 +1,56 @@
+
+body {
+    font-family: "Roboto", sans-serif;
+  }
+
+.admin-navbar {
+    height: 60px;
+    width: 100%;
+    border-bottom: 1px solid grey;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .admin-navbar div {
+    display: flex;
+  }
+  
+  .techpatshala-img {
+    margin-left: 30px;
+    object-fit: contain;
+  }
+  
+  .admin-bar {
+    margin-left: 40px;
+  }
+  
+  .side-bar{
+    margin-left: 59px;
+    font-size: 1.2rem;
+  }
+  
+
+
+  .admin-main {
+    height: 600px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  
+  }
+  
+  .admin-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 40px;
+  }
+  
+  .admin-section p {
+    padding-right: 30px;
+    font-size: 1.4rem;
+  }
+  
+
+  
