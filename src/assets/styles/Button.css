@@ -1,0 +1,37 @@
+.cancle-question{
+    background-color: green;
+    color: #FFF;
+    font-size: 1.2rem;
+}
+.delete-button{
+    background-color: red;
+    color: #FFF;
+    font-size: 1.2rem;
+}
+.add-question-button{
+    background-color: green;
+    color: #fff;
+    width: 150px;
+    position: relative;
+    top: 13px;
+    left: 640px;  
+}
+
+.add-question-button:hover{
+    background-color: green !important;
+    background-color: antiquewhite;
+}
+
+
+ .add-button {
+    background-color: green;
+    width: 150px;
+    margin-left: 140px;
+    position: relative;
+    bottom: 20px;
+}
+
+.add-button:hover {
+    background-color:green ; 
+    color: #fff ;
+}

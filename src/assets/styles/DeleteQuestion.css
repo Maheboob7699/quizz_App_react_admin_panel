@@ -1,0 +1,26 @@
+body {
+    font-family: "Roboto", sans-serif;
+}
+
+.question-delete{
+    height: 173px;
+    width: 274px;
+    background-color: #FFF;
+    border-radius: 4px;
+    box-shadow: 0px 8px 16px 0px #1C1C1E1A;
+}
+.question-delete-cancle{
+    margin-left: 83%;
+    position: relative;
+    top: 30px;
+   
+}
+
+.question-delete h2{
+    text-align: center;
+     padding-top: 10px;
+}
+
+.button-container{
+    margin-left:50px;
+}

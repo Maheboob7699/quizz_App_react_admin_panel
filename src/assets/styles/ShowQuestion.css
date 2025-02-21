@@ -1,0 +1,47 @@
+body {
+    font-family: "Roboto", sans-serif;
+  }
+  .questions-show-container{
+    background-color: #a9a0a552;
+    height: 600px;
+    width: 536px;
+    border-radius: 8px;
+    box-shadow: 0px 8px 16px 0px #1C1C1E1A;
+    margin: auto;
+    position: absolute;
+    top: 60px;
+  }
+  .questions-show{
+    background-color: #ffff;
+    height: 534px;
+    width: 499px;
+    margin-top: 31px;
+    margin-left: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 8px 16px 0px #1C1C1E1A;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .cancle-button{
+    position: absolute;
+    right: 40px;
+    top: 48px;
+    height: 20px;
+    width: 20px;
+    margin-left: 3px;
+  }
+
+  .cancle-button:hover{
+    background-color: rgb(180, 168, 168);
+    border-radius: 3px ;
+
+  }
+  .question-and-option{
+    margin-left: 20px;
+    margin-top: 30px;
+  }
+.question-and-option p{
+    font-size: 1.3rem;
+}
+

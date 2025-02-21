@@ -1,0 +1,55 @@
+body {
+    font-family: "Roboto", sans-serif;
+}
+
+.edit-question{
+    background-color: #a9a0a552;
+    height: 600px;
+    width: 488px;
+    border-radius: 8px;
+    box-shadow: 0px 8px 16px 0px #1C1C1E1A;
+    margin: auto;
+    position: absolute;
+    top: 60px;
+}
+
+.edit-question .questions-container{
+    background-color: #ffff;
+    height: 534px;
+    width: 451px;
+    margin-top: 31px;
+    margin-left: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 8px 16px 0px #1C1C1E1A;
+    display: flex;
+    flex-direction: column;
+}
+.questions-container .edit-question-cancle{
+    position: absolute;
+    right: 40px;
+    top: 48px;
+    height: 20px;
+    width: 20px;
+    
+}
+.question-set{
+    margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+  gap: 30px;
+}
+.question-set textarea{
+    width: 400px;
+}
+.question-set div select{
+    width: 400px;
+    height: 40px;
+}
+.edit-question div input{
+    width: 400px;
+    height: 40px;
+    border-radius: 10px;
+    outline: none;
+    border: 1px solid grey;
+}

@@ -3,7 +3,9 @@ import NavbarPage from './pages/Navbarpage'
 import QuizzMenuPage from './pages/QuizzMenuPage'
 import UserPage from './pages/UserPage'
 import { Routes, Route} from 'react-router-dom'
-import SpecificQuestions from './containers/SpecificQuestions'
+import HomePage from './pages/HomePage'
+import QuestionPage from './pages/QuestionPage'
+import ShowQuestion from './containers/ShowQuestion'
 function App() {
 
   return (
@@ -12,10 +14,11 @@ function App() {
       <div style={{ display: 'flex' }}>
         <QuizzMenuPage />
         <Routes>
+          <Route path='/home' element={<HomePage/>}/>
           <Route path='/user' element={<UserPage />} />
+          <Route path='/quizz' element={<QuestionPage/>}/>
         </Routes>
       </div>
-      <SpecificQuestions/>
     </>
   )
 }

@@ -2,10 +2,12 @@ import '../assets/styles/User.css'
 import { useState, useEffect } from 'react';
 import { handleResult } from '../store/userSlice';
 import { useSelector, useDispatch } from 'react-redux';
+import SpecificQuestions from './SpecificQuestions';
 
 function SpecificUser() {
     const {user, userIndex, specificUserIndex } = useSelector((state) => state.usersData);
     const dispatch = useDispatch();
+    const [showQuestionPage, setShowQuestionPage] = useState(false);
 
     useEffect(() => {}, [specificUserIndex]);
 
@@ -15,38 +17,41 @@ function SpecificUser() {
     const handleResultButton = (id) => {
         console.log("index is", id);
         dispatch(handleResult(id));
+        setShowQuestionPage(true);
     }
 
     return (
         <>
-            <div className="container">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Sr No</th>
-                            <th>Name</th>
-                            <th>Email Id</th>
-                            <th>Scores</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {
-                            specificUser.map((specificUserData, index) => {
-                                return (
-                                    <tr key={index}>
-                                        <td>{index + 1}</td>
-                                        <td>{user[userIndex].name}</td>
-                                        <td>{user[userIndex].email}</td>
-                                        <td>{specificUserData.score}</td>
-                                        <td><button onClick={() => handleResultButton(index)}>result</button></td>
-                                    </tr>
-                                )
-                            })
-                        }
-                    </tbody>
-                </table>
-            </div>
+           {showQuestionPage ?(<SpecificQuestions/>):(
+             <div className="container">
+             <table>
+                 <thead>
+                     <tr>
+                         <th>Sr No</th>
+                         <th>Name</th>
+                         <th>Email Id</th>
+                         <th>Scores</th>
+                         <th>Actions</th>
+                     </tr>
+                 </thead>
+                 <tbody>
+                     {
+                         specificUser.map((specificUserData, index) => {
+                             return (
+                                 <tr key={index}>
+                                     <td>{index + 1}</td>
+                                     <td>{user[userIndex].name}</td>
+                                     <td>{user[userIndex].email}</td>
+                                     <td>{specificUserData.score}</td>
+                                     <td><button onClick={() => handleResultButton(index)}>result</button></td>
+                                 </tr>
+                             )
+                         })
+                     }
+                 </tbody>
+             </table>
+         </div>
+           )}
         </>
     )
 }

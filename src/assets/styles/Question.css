@@ -1,0 +1,24 @@
+.question-container{
+    width: 100%;
+    overflow-x: auto;
+    margin-left: 10px;
+}
+.question-container table{
+    margin-top: 30px;
+}
+.question-container table th{
+    background-color: rgb(163, 218, 199);
+}
+.show-question{
+    color: green;
+}
+
+.show-delete{
+    color: red;
+}
+
+.show-question-wrapper {
+    position: absolute;
+    left: 300px;
+  }
+
