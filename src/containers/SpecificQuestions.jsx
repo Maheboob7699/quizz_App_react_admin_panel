@@ -51,10 +51,10 @@ function SpecificQuestions() {
         <>
             <div className="questions">
                 <div className="user-detail">
-                    <div>
+                    <div className="user-data">
                         <h3>{username}</h3>  <h3>{email}</h3>
                     </div>
-                    <div>
+                    <div className="score">
                         <h3> score: {sepcificUserScore}</h3>
                     </div>
                 </div>
