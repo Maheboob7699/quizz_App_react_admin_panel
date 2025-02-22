@@ -1,7 +1,17 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+body {
+    font-family: "Poppins", sans-serif; /* ✅ Use sans-serif */
+}
+
+
 .question-container{
     width: 100%;
     overflow-x: auto;
     margin-left: 10px;
+    font-family: "Poppins", serif;
+
 }
 .question-container table{
     margin-top: 30px;
@@ -11,10 +21,15 @@
 }
 .show-question{
     color: green;
+    font-size: 1.1rem;
+}
+.show-edit{
+    font-size: 1.1rem;
 }
 
 .show-delete{
     color: red;
+    font-size: 1.1rem;
 }
 
 .show-question-wrapper {

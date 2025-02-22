@@ -1,7 +1,28 @@
+*{
+    font-family: "Poppins", serif;
+}
+.login-button{
+    width: 422px;
+    height: 43px;
+    padding: 12px 24px 12px 24px;
+    font-size: 1.2rem;
+    background-color: #F3BD00;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    border: none;
+}
+
+.login-button:hover{
+    background-color: #F3BD00 !important; 
+}
 .cancle-question{
     background-color: green;
     color: #FFF;
     font-size: 1.2rem;
+    
 }
 .delete-button{
     background-color: red;
@@ -14,7 +35,7 @@
     width: 150px;
     position: relative;
     top: 13px;
-    left: 640px;  
+    left: 961px;
 }
 
 .add-question-button:hover{
@@ -34,4 +55,18 @@
 .add-button:hover {
     background-color:green ; 
     color: #fff ;
+}
+.edit-button{
+    background-color:blue  ;
+    width: 100px;
+    color: #FFF !important;
+    margin-left: 155px;
+    bottom: 25px;
+    position: relative;
+
+}
+
+.edit-button:hover{
+    background-color: blue !important;
+   
 }

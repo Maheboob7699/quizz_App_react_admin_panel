@@ -1,13 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
 body {
-    font-family: "Roboto", sans-serif;
+    font-family: "Poppins", sans-serif; /* ✅ Use sans-serif */
 }
 
+
 .question-delete{
-    height: 173px;
-    width: 274px;
+    height: 192px;
+    width: 312px;
     background-color: #FFF;
-    border-radius: 4px;
+    border-radius: 14px;
     box-shadow: 0px 8px 16px 0px #1C1C1E1A;
+    margin-left: 270px;
+    margin-top: 170px;
 }
 .question-delete-cancle{
     margin-left: 83%;
