@@ -63,7 +63,7 @@ function Question() {
                                     <button className='show-question' onClick={() => handleShow(q)}>
                                         <FontAwesomeIcon icon={faEye} />
                                     </button>
-                                    <button onClick={()=>handleEdit(i)}>
+                                    <button className='show-edit' onClick={()=>handleEdit(i)}>
                                         <FontAwesomeIcon icon={faPenToSquare} />
                                     </button>
                                     <button className='show-delete' onClick={() => handleDelete(i)}>
