@@ -36,7 +36,7 @@ function ShowQuestion() {
                                 )
                             })
                         }
-                        <h3>Correct answer</h3>
+                        <h3>correct answer :</h3>
                         <p>{questionDisplay.answer}</p>
                        </div>
                 </div>
