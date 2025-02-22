@@ -81,7 +81,7 @@ function EditQuestion({ setQuestion }) {
                         </select>
                     </div>
 
-                    <Button title="Edit" textName="Edit-button" onClick={handleEdit} />
+                    <Button title="Edit" textName="edit-button" onClick={handleEdit} />
                 </div>
             </div>
         </div>
