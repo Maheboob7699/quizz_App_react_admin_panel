@@ -1,17 +1,22 @@
 import '../assets/styles/User.css'
 import { useState, useEffect } from 'react';
-import { handleResult } from '../store/userSlice';
+import { handleResult } from '../stores/users/userReducer';
 import { useSelector, useDispatch } from 'react-redux';
 import SpecificQuestions from './SpecificQuestions';
+import { fetchUserRequest } from '../stores/users/userReducer';
 
 function SpecificUser() {
-    const {user, userIndex, specificUserIndex } = useSelector((state) => state.usersData);
+    const {user,userIndex} = useSelector((state) => state.userData);
     const dispatch = useDispatch();
     const [showQuestionPage, setShowQuestionPage] = useState(false);
+    console.log(user[userIndex].user);
+    
 
-    useEffect(() => {}, [specificUserIndex]);
+   useEffect(()=>{
+    dispatch(fetchUserRequest())
+   },[])
 
-    console.log("specific userIndex is", specificUserIndex);
+    // console.log("specific userIndex is", specificUserIndex);
     let specificUser = user[userIndex]?.user;
 
     const handleResultButton = (id) => {

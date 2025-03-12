@@ -36,6 +36,7 @@ body {
 }
 .questions-container div{
     border-radius: 10px;
+    margin-top: 10px;
 }
 .questions-container div button{
     color: black;

@@ -1,20 +1,21 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import '../assets/styles/User.css';
-import { handleTest } from '../store/userSlice';
+import { handleTest } from  '../stores/users/userReducer'
 import { useSelector, useDispatch } from 'react-redux';
 import SpecificUser from './SpecificUser';
+import { fetchUserRequest } from '../stores/users/userReducer';
 function User() {
     const [userShow, setUserShow] = useState(true);
-    const { user,userIndex } = useSelector((state) => state.usersData);
+    const {user} = useSelector((state)=>state.userData);
     const dispatch = useDispatch();
+    console.log("user is",user);
 
-    
-    console.log("userindex", userIndex);
-    console.log(user);
+    useEffect(()=>{
+        dispatch(fetchUserRequest())
+    },[])
   
     const handleTestButton = (index) => {
         dispatch(handleTest(index));
-        console.log(user[index].user);
         setUserShow(false);
     }
 
