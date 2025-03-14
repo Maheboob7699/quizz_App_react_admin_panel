@@ -2,24 +2,36 @@ import { useEffect, useState } from 'react';
 import '../assets/styles/Question.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faPenToSquare, faTrash, faPlus } from '@fortawesome/free-solid-svg-icons';
-import { showQuestion, editQuestionIndex,deleteQuestionIndex, showCreateQuestionComponent,showEditQuestionComponent } from '../store/questionSlice';
+// import { showQuestion, editQuestionIndex,deleteQuestionIndex, showCreateQuestionComponent,showEditQuestionComponent } from '../store/questionSlice';
 import ShowQuestion from './ShowQuestion';
 import DeleteQuestion from './DeleteQuestion';
 import Button from '../Components/common/Button'
 import { useSelector, useDispatch } from 'react-redux';
 import AddQuestion from './AddQuestion';
 import EditQuestion from './EditQuestion';
+import { fetchQuestionRequest,showQuestion } from '../stores/question/questionReducer';
+
+
 
 function Question() {
-    const { hideCreate, show, deleteIndex,editIndex, hideDelete,hideEdit } = useSelector((state) => state.questionData);
-    console.log(hideDelete);
+    const {questions, showQuestionPage} = useSelector((state)=>state.quizzQuestion);
     const dispatch = useDispatch();
-    const [question, setQuestion] = useState([]);
+     console.log(showQuestionPage);
+     
+      useEffect(()=>{
+        dispatch(fetchQuestionRequest())
+      },[])
 
-    useEffect(() => {
-        const localQuestion = JSON.parse(localStorage.getItem("questions")) || [];
-        setQuestion(localQuestion);
-    }, []);
+    //   const [show,setShow] = useState(false)
+    // const { hideCreate, show, deleteIndex,editIndex, hideDelete,hideEdit } = useSelector((state) => state.questionData);
+    // console.log(hideDelete);
+    // const dispatch = useDispatch();
+    // const [question, setQuestion] = useState([]);
+
+    // useEffect(() => {
+    //     const localQuestion = JSON.parse(localStorage.getItem("questions")) || [];
+    //     setQuestion(localQuestion);
+    // }, []);
 
     const handleCreate = () => {
         dispatch(showCreateQuestionComponent())
@@ -27,7 +39,10 @@ function Question() {
 
 
     const handleShow = (q) => {
-        dispatch(showQuestion(q));
+        console.log(q);
+        dispatch(showQuestion(q))
+        
+        // dispatch(showQuestion(q));
     };
 
     const handleEdit=(i)=>{
@@ -55,7 +70,7 @@ function Question() {
                         </tr>
                     </thead>
                     <tbody>
-                        {question.map((q, i) => (
+                        {questions.map((q, i) => (
                             <tr key={i}>
                                 <td>{i + 1}</td>
                                 <td>{q.ques}</td>
@@ -76,11 +91,17 @@ function Question() {
                 </table>
             </div>
 
-            {show && (
+            { showQuestionPage ? (<div className="show-question-wrapper">
+                    <ShowQuestion />
+                </div>) :null}
+
+            {/* {show && (
                 <div className="show-question-wrapper">
                     <ShowQuestion />
                 </div>
             )}
+
+            {}
 
             {hideDelete ? (
                 <div className='show-question-wrapper'>
@@ -98,7 +119,7 @@ function Question() {
               <div className='show-question-wrapper'>
               <EditQuestion  setQuestion={setQuestion}/>
           </div>
-           ):null}
+           ):null} */}
 
            {/* <EditQuestion/> */}
 

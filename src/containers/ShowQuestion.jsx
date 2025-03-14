@@ -3,21 +3,20 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faXmark } from '@fortawesome/free-solid-svg-icons'
 import '../assets/styles/ShowQuestion.css'
 import { useDispatch, useSelector } from "react-redux"
-import { cancleShowQuestion } from "../store/questionSlice"
-function ShowQuestion() {
-    const localQuestion = JSON.parse(localStorage.getItem('questions'));
-    console.log(localQuestion);
+import { cancelShowQuestionPage } from "../stores/question/questionReducer"
 
-    const [questions, setQuestions] = useState(localQuestion);
-    const { questionIndex, questionDisplay } = useSelector((state) => state.questionData);
+function ShowQuestion() {
+    const {showQuestion,} =useSelector((state)=>state.quizzQuestion);
     const dispatch = useDispatch();
-    console.log("question is", questionDisplay);
+    console.log(showQuestion);
+
     const canclebutton=()=>{
-        dispatch(cancleShowQuestion());
+       dispatch(cancelShowQuestionPage())
     }
 
     return (
         <>
+         <h1>show question </h1>
             <div className="questions-show-container">
                 <div className="questions-show">
                     <div onClick={canclebutton}>
@@ -25,9 +24,9 @@ function ShowQuestion() {
                     </div>
                        <div className="question-and-option">
                        <h2>Questions</h2>
-                       <p>{questionDisplay.ques}</p>
+                       <p>{showQuestion.ques}</p>
                         {
-                            questionDisplay.options.map((option,i)=>{
+                            showQuestion.options.map((option,i)=>{
                                 return(
                                     <div key={i}>
                                         <h3>option {i+1} </h3>
@@ -37,7 +36,7 @@ function ShowQuestion() {
                             })
                         }
                         <h3>correct answer :</h3>
-                        <p>{questionDisplay.answer}</p>
+                        <p>{showQuestion.answer}</p>
                        </div>
                 </div>
             </div>
