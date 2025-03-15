@@ -4,7 +4,8 @@ import { faXmark,faPlus } from '@fortawesome/free-solid-svg-icons'
 import { useEffect, useState } from 'react'
 import Button from '../Components/common/Button'
 import { hideCreateQuestionComponent } from '../store/questionSlice'
-import { useDispatch } from 'react-redux'
+import { addQuestion } from '../stores/question/questionReducer'
+import { useDispatch, useSelector } from 'react-redux'
 
 function AddQuestion({setQuestion,question}) {
     let initalState = {
@@ -14,6 +15,9 @@ function AddQuestion({setQuestion,question}) {
     }
 
     const [input, setInput] = useState(initalState);
+    const {questions} = useSelector((state)=>state.quizzQuestion);
+    console.log(questions);
+    
     const dispatch = useDispatch();
     useEffect(()=>{
     },[input])
@@ -46,11 +50,13 @@ function AddQuestion({setQuestion,question}) {
  
     const handelAddQuestion = () => {
     
-            const updatedQuestions = [...question, input]; 
-           setQuestion(updatedQuestions)
-            localStorage.setItem("questions", JSON.stringify(updatedQuestions));
-        setInput(initalState);
-        dispatch(hideCreateQuestionComponent());
+            dispatch(addQuestion(input))
+            
+
+        //    setQuestion(updatedQuestions)
+        //     localStorage.setItem("questions", JSON.stringify(updatedQuestions));
+        // setInput(initalState);
+        // dispatch(hideCreateQuestionComponent());
     };
     
 
@@ -62,6 +68,8 @@ function AddQuestion({setQuestion,question}) {
 
     return (
         <>
+
+         <h1>Add Question page</h1>
             <div className="add-question">
                 <div className='questions-container'>
                     <div>

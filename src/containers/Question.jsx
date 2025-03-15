@@ -9,18 +9,20 @@ import Button from '../Components/common/Button'
 import { useSelector, useDispatch } from 'react-redux';
 import AddQuestion from './AddQuestion';
 import EditQuestion from './EditQuestion';
-import { fetchQuestionRequest,showQuestion } from '../stores/question/questionReducer';
+import { fetchQuestionRequest,showQuestion,showAddQuestion, setDeleteIndex} from '../stores/question/questionReducer';
 
 
 
 function Question() {
-    const {questions, showQuestionPage} = useSelector((state)=>state.quizzQuestion);
+    const {questions, showQuestionPage,addQuestionPage,deleteQuestionPage,deleteIndex} = useSelector((state)=>state.quizzQuestion);
     const dispatch = useDispatch();
-     console.log(showQuestionPage);
-     
       useEffect(()=>{
         dispatch(fetchQuestionRequest())
       },[])
+      console.log("deleteIndex",deleteIndex);
+      console.log(deleteQuestionPage);
+      
+      
 
     //   const [show,setShow] = useState(false)
     // const { hideCreate, show, deleteIndex,editIndex, hideDelete,hideEdit } = useSelector((state) => state.questionData);
@@ -34,7 +36,10 @@ function Question() {
     // }, []);
 
     const handleCreate = () => {
-        dispatch(showCreateQuestionComponent())
+        console.log('DKSDFKDSKD');
+        dispatch(showAddQuestion())
+        
+        // dispatch(showCreateQuestionComponent())
     }
 
 
@@ -53,7 +58,10 @@ function Question() {
     }
 
     const handleDelete = (index) => {
-        dispatch(deleteQuestionIndex(index));
+        console.log("index",index);
+        dispatch(setDeleteIndex(index))
+        
+        // dispatch(deleteQuestionIndex(index));
     };
 
 
@@ -94,6 +102,14 @@ function Question() {
             { showQuestionPage ? (<div className="show-question-wrapper">
                     <ShowQuestion />
                 </div>) :null}
+
+                {addQuestionPage ? (<div className='show-question-wrapper'>
+                    <AddQuestion />
+                </div>):null }
+
+                {deleteQuestionPage ?( <div className='show-question-wrapper'>
+                    <DeleteQuestion />
+                </div>):null }
 
             {/* {show && (
                 <div className="show-question-wrapper">
