@@ -9,21 +9,19 @@ import Button from '../Components/common/Button'
 import { useSelector, useDispatch } from 'react-redux';
 import AddQuestion from './AddQuestion';
 import EditQuestion from './EditQuestion';
-import { fetchQuestionRequest,showQuestion,showAddQuestion, setDeleteIndex} from '../stores/question/questionReducer';
+import { fetchQuestionRequest,showQuestion,showAddQuestion, setDeleteIndex, setEditIndex} from '../stores/question/questionReducer';
 
 
 
 function Question() {
-    const {questions, showQuestionPage,addQuestionPage,deleteQuestionPage,deleteIndex} = useSelector((state)=>state.quizzQuestion);
+    const {questions, showQuestionPage,addQuestionPage,deleteQuestionPage,deleteIndex, editIndex,editeQuestionPage} = useSelector((state)=>state.quizzQuestion);
     const dispatch = useDispatch();
       useEffect(()=>{
         dispatch(fetchQuestionRequest())
       },[])
       console.log("deleteIndex",deleteIndex);
-      console.log(deleteQuestionPage);
+      console.log("editIndex",editIndex);
       
-      
-
     //   const [show,setShow] = useState(false)
     // const { hideCreate, show, deleteIndex,editIndex, hideDelete,hideEdit } = useSelector((state) => state.questionData);
     // console.log(hideDelete);
@@ -52,8 +50,8 @@ function Question() {
 
     const handleEdit=(i)=>{
         console.log("eidt call",i);
-        dispatch(editQuestionIndex(i))
-        dispatch(showEditQuestionComponent())
+        dispatch(setEditIndex(i))
+    
           
     }
 
@@ -110,6 +108,10 @@ function Question() {
                 {deleteQuestionPage ?( <div className='show-question-wrapper'>
                     <DeleteQuestion />
                 </div>):null }
+
+                {editeQuestionPage ? (  <div className='show-question-wrapper'>
+              <EditQuestion/>
+          </div>):null}
 
             {/* {show && (
                 <div className="show-question-wrapper">

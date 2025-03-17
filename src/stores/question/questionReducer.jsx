@@ -5,7 +5,9 @@ let initialState ={
     showQuestionPage:false,
     addQuestionPage:false,
     deleteQuestionPage:false,
+    editeQuestionPage:false,
     deleteIndex : '',
+    editIndex:'',
     error:'',
 
 }
@@ -57,13 +59,32 @@ const questionSlice = createSlice({
           })
           state.questions = updatedQuestions;
           state.deleteQuestionPage = false
+         },
+
+         setEditIndex:(state,action)=>{
+            state. editIndex =action.payload,
+            state. editeQuestionPage = true;
+         },
+
+         cancelEditQuestionPage:(state,action)=>{
+            state.editeQuestionPage = false
+         },
+
+         updateEditQuestion:(state,action)=>{
+            console.log(action.payload);
+            console.log(state.editIndex);
+            
+            
+            state.questions = state.questions.map((item, i) =>
+               i === state.editIndex 
+                   ? { ...item, ...action.payload } 
+                   : item
+           );
+            state.editeQuestionPage = false
          }
-
-
-
     }
 })
 
-export const {fetchQuestionRequest,fetchQuestionSuccess,fetchQuestionError,showQuestion,cancelShowQuestionPage, showAddQuestion,addQuestion,cancelDeleteQuestionPage,setDeleteIndex,deleteQuestion} = questionSlice.actions;
+export const {fetchQuestionRequest,fetchQuestionSuccess,fetchQuestionError,showQuestion,cancelShowQuestionPage, showAddQuestion,addQuestion,cancelDeleteQuestionPage,setDeleteIndex,deleteQuestion, setEditIndex,cancelEditQuestionPage,updateEditQuestion} = questionSlice.actions;
 
 export default questionSlice.reducer;
